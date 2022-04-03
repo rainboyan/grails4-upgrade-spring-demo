@@ -1,6 +1,6 @@
 # How to Upgrade to Spring 5.3.18 with Grails 4
 
-Because of [Spring Framework RCE](https://spring.io/blog/2022/03/31/spring-framework-rce-early-announcement), many Grails and Spring apps are impacted. Recently [Grails 5.1.6 was released and update to Spring 5.3.18](https://grails.org/blog/2022-03-31-grails-spring-rce.html), but unfortunately, Grails 4 since last release 4.0.13 still use Spring Boot 2.1.x and Spring Framework 5.1.x, which are all [End of Support](https://spring.io/projects/spring-boot#support), [This demo](https://github.com/rainboyan/grails4-upgrade-spring-demo) show you how to Upgrade Spring to 5.3.18, I hope this demo will help you, but you should **Notice** that, Spring Framework 5.3.x changed lot and may not work with old Grails 4 plugins, please give a hard test and make sure it works.
+Because of [Spring Framework RCE](https://spring.io/blog/2022/03/31/spring-framework-rce-early-announcement), many Grails and Spring apps are impacted. Recently [Grails 5.1.6 was released and update to Spring 5.3.18](https://grails.org/blog/2022-03-31-grails-spring-rce.html), but unfortunately, Grails 4 since last release 4.0.13 still use Spring Boot 2.1.x and Spring Framework 5.1.x, which are all [End of Support](https://spring.io/projects/spring-boot#support), [This demo](https://github.com/rainboyan/grails4-upgrade-spring-demo) show you how to Upgrade Spring to 5.3.18, I hope this demo will help you, but you should **Notice** that, Spring Framework 5.3.x changed lot and may not work with old Grails 4 plugins, please make a hard test and make sure it works.
 
 When upgraded Spring 5.3.18, there is a error came from `groovyPagesTemplateEngine` of `grails-gsp`, because of [Spring 5.3.18 issue#28261, Restrict access to property paths on Class references](https://github.com/spring-projects/spring-framework/issues/28261), 
 
@@ -17,7 +17,7 @@ beans = {
 }
 ```
 
-`sr/main/groovy/org/grails/demo/GrailsIssue12460PostProcessor.groovy`:
+`src/main/groovy/org/grails/demo/GrailsIssue12460PostProcessor.groovy`:
 ```groovy
 class GrailsIssue12460PostProcessor implements MergedBeanDefinitionPostProcessor {
     @Override
